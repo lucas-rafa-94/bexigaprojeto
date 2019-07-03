@@ -1,0 +1,35 @@
+{% extends 'escolha/navbar.html' %}
+{% load static %}
+{% block content %}
+    <div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Rua</th>
+                            <th class="cell100 column4">Ações</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                        {% for foto in resultEscolhido %}
+                        <tr class="row100 body">
+                            <td class="cell100 column1">{{ foto.nome }}</td>
+                            <td  class="cell100 column4"><a href="{% url 'nao-escolhidos' %}">Editar</a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
