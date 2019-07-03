@@ -21,7 +21,7 @@
                         {% for foto in resultNaoEscolhido %}
                         <tr class="row100 body">
                             <td class="cell100 column1">{{ foto.nome }}</td>
-                            <td  class="cell100 column4"><a href="{% url 'escolhidos' %}">Editar</a></td>
+                            <td  class="cell100 column4"><a href="{% url 'nao-escolhidos'  %}?id={{foto.nome}}">Editar</a></td>
                         </tr>
                         {% endfor %}
                         </tbody>

@@ -14,17 +14,14 @@ def escolhidosTable(request):
     return render(request, 'escolha/escolhidos-table.html', {"resultEscolhido": result})
 
 def naoEscolhidos(request):
+    print('template ' + request.GET.get('id'))
     print('Entrou')
-    result = Foto.objects.filter(escolhido=False)
+    result = Foto.objects.filter(nome=request.GET.get('id'))
     print(result[0].imagem)
-    string = result[0].nome
-    return render(request, 'escolha/nao-escolhidos.html', {"resultNaoEscolhido": result})
+    return render(request, 'escolha/nao-escolhidos.html', {"resultNaoEscolhido": result, "nome": result[0].nome})
 
 def naoEscolhidosTable(request):
-    print('Entrou')
     result = Foto.objects.filter(escolhido=False)
-    print(result[0].imagem)
-    string = result[0].nome
     return render(request, 'escolha/nao-escolhidos-table.html', {"resultNaoEscolhido": result})
 
 def home(request):
