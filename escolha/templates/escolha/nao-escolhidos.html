@@ -1,6 +1,8 @@
 {% extends 'escolha/navbar.html' %}
 
 {% block content %}
+    <form action="{% url 'nao-escolhidos' %}" method="post">
+    {% csrf_token %}
   <section id="service-head" class="bg-feature">
     <div class="container">
       <div class="row">
@@ -45,10 +47,11 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-primary">Bom</button>
-        <button type="button" class="btn btn-danger">Ruim</button>
+        <button type="submit" class="btn btn-primary">Bom</button>
+        <button type="submit" class="btn btn-danger">Ruim</button>
       </div>
     </div>
   </section>
+    </form>
 {% endblock %}
 
