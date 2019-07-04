@@ -1,53 +1,63 @@
 {% extends 'escolha/navbar.html' %}
+{% load static %}
 {% block content %}
+    <form action="{% url 'escolhidos' %}?nome={{nome}}&id={{ id }}" method="post">
+    {% csrf_token %}
+
   <section id="service-head" class="bg-feature">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-sm-12 m-auto">
           <div class="section-heading text-white">
-            <h4 class="section-title">Nome da rua</h4>
+            <h4 name="nome" class="section-title">{{nome}}</h4>
+              <p>Código banco: {{ id }} </p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
   <section id="service">
     <div class="container">
       <div class="row">
+           {% for foto in resultEscolhido %}
         <div class="col-lg-4 col-sm-6 col-md-6">
           <div class="service-box">
-
-            <img src="/Users/lucasdossantos/Desktop/0050170048_Santo_Amaro_43_Kurt_2002.jpg">
-
+            <img src="{{ foto.imagem }}" style="width: 400px; height: 300px">
             <div class="service-inner">
-              <h4>Ano foto</h4>
+              <h4>{{ foto.ano }}</h4>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="service-box">
-
-            <img src="/Users/lucasdossantos/Desktop/0050170048_Santo_Amaro_43_Kurt_2002.jpg">
-
-            <div class="service-inner">
-              <h4>Ano foto</h4>
-            </div>
-          </div>
+           {% endfor %}
+          <div class="col-md-12">
+            <label for="exampleFormControlTextarea1">Comentários</label>
+            <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="5">{{ comentario }}</textarea>
         </div>
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="service-box">
-
-            <img src="/Users/lucasdossantos/Desktop/0050170048_Santo_Amaro_43_Kurt_2002.jpg">
-
-            <div class="service-inner">
-              <h4>Ano foto</h4>
-            </div>
-          </div>
+       {% if escolhido == True %}
+           <div class="col-md-12">
+            <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+            <label class="form-check-label" for="exampleCheck1">Aprovado</label>
         </div>
-        <button type="button" class="btn btn-primary">Bom</button>
-        <button type="button" class="btn btn-danger">Ruim</button>
+      {% endif %}
+       {% if escolhido == False %}
+           <div class="col-md-12">
+            <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Aprovado</label>
+        </div>
+      {% endif %}
+
+      <div class="col-md-7">
+           <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+      <br>
       </div>
     </div>
+
   </section>
+    </form>
+
+
 {% endblock %}
 

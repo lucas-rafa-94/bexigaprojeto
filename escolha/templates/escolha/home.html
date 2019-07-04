@@ -1,53 +1,44 @@
 {% extends 'escolha/navbar.html' %}
+{% load static %}
 {% block content %}
-  <section id="service-head" class="bg-feature">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-sm-12 m-auto">
-          <div class="section-heading text-white">
-            <h4 class="section-title">Nome da rua</h4>
-          </div>
+    <div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Código Banco</th>
+                            <th class="cell100 column2">Rua</th>
+                            <th class="cell100 column4">Aprovado</th>
+                            <th class="cell100 column4">Ações</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                        {% for foto in result %}
+                        <tr class="row100 body">
+                            <td class="cell100 column1">{{ foto.codigo_banco }}</td>
+                            <td class="cell100 column2">{{ foto.nome }}</td>
+                            {% if foto.escolhido == True %}
+                                <td class="cell100 column4">Sim</td>
+                            {% endif %}
+                              {% if foto.escolhido == False %}
+                                <td class="cell100 column4">Não</td>
+                            {% endif %}
+                            <td  class="cell100 column4"><a href="{% url 'todos'  %}?id={{foto.nome}}">Editar</a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-  <section id="service">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="service-box">
-
-            <img src="/Users/lucasdossantos/Desktop/0050170048_Santo_Amaro_43_Kurt_2002.jpg">
-
-            <div class="service-inner">
-              <h4>Ano foto</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="service-box">
-
-            <img src="/Users/lucasdossantos/Desktop/0050170048_Santo_Amaro_43_Kurt_2002.jpg">
-
-            <div class="service-inner">
-              <h4>Ano foto</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="service-box">
-
-            <img src="/Users/lucasdossantos/Desktop/0050170048_Santo_Amaro_43_Kurt_2002.jpg">
-
-            <div class="service-inner">
-              <h4>Ano foto</h4>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-primary">Bom</button>
-        <button type="button" class="btn btn-danger">Ruim</button>
-      </div>
-    </div>
-  </section>
+</div>
 {% endblock %}
 
