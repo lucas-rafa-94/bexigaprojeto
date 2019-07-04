@@ -10,7 +10,7 @@
                         <thead>
                         <tr class="row100 head">
                             <th class="cell100 column1">Código Banco</th>
-                            <th class="cell100 column2">Rua</th>
+                            <th class="cell100 column2">Endereço</th>
                             <th class="cell100 column4">Ações</th>
                         </tr>
                         </thead>
@@ -20,10 +20,10 @@
                     <table>
                         <tbody>
                         {% for foto in resultEscolhido %}
-                        <tr class="row100 body">
+                        <tr class="row100 body" >
                             <td class="cell100 column1">{{ foto.codigo_banco }}</td>
                             <td class="cell100 column2">{{ foto.nome }}</td>
-                            <td  class="cell100 column4"><a href="{% url 'escolhidos'  %}?id={{foto.nome}}">Editar</a></td>
+                            <td  class="cell100 column4"><a href="{% url 'escolhidos'  %}?id={{foto.nome}}" >Editar</a></td>
                         </tr>
                         {% endfor %}
                         </tbody>

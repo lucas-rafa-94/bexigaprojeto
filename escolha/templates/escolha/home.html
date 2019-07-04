@@ -10,7 +10,7 @@
                         <thead>
                         <tr class="row100 head">
                             <th class="cell100 column1">Código Banco</th>
-                            <th class="cell100 column2">Rua</th>
+                            <th class="cell100 column2">Endereço</th>
                             <th class="cell100 column4">Aprovado</th>
                             <th class="cell100 column4">Ações</th>
                         </tr>
@@ -21,16 +21,19 @@
                     <table>
                         <tbody>
                         {% for foto in result %}
-                        <tr class="row100 body">
+                        <tr class="row100 body" >
                             <td class="cell100 column1">{{ foto.codigo_banco }}</td>
                             <td class="cell100 column2">{{ foto.nome }}</td>
-                            {% if foto.escolhido == True %}
+                            {% if foto.escolhido == 'True' %}
                                 <td class="cell100 column4">Sim</td>
                             {% endif %}
-                              {% if foto.escolhido == False %}
+                         {% if foto.escolhido == '' %}
+                                <td class="cell100 column4">Não Visto</td>
+                            {% endif %}
+                              {% if foto.escolhido == 'False' %}
                                 <td class="cell100 column4">Não</td>
                             {% endif %}
-                            <td  class="cell100 column4"><a href="{% url 'todos'  %}?id={{foto.nome}}">Editar</a></td>
+                            <td  class="cell100 column4"><a href="{% url 'todos'  %}?id={{foto.nome}}" >Editar</a></td>
                         </tr>
                         {% endfor %}
                         </tbody>

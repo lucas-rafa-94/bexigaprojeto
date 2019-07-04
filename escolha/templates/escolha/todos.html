@@ -35,13 +35,19 @@
             <label for="exampleFormControlTextarea1">Comentários</label>
             <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="5">{{ comentario }}</textarea>
         </div>
-      {% if escolhido == True %}
+      {% if escolhido == 'True' %}
            <div class="col-md-12">
             <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1" checked>
             <label class="form-check-label" for="exampleCheck1">Aprovado</label>
         </div>
       {% endif %}
-       {% if escolhido == False %}
+      {% if escolhido == '' %}
+           <div class="col-md-12">
+            <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Aprovado</label>
+        </div>
+      {% endif %}
+       {% if escolhido == 'False' %}
            <div class="col-md-12">
             <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Aprovado</label>

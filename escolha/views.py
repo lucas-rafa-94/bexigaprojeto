@@ -16,11 +16,11 @@ def escolhidos(request):
             aprovado_ = True
         Foto.objects.filter(codigo_banco=request.GET.get('id')).update(comentario=request.POST.get('comentario'),escolhido=aprovado_)
         print('Entrouuuuuu')
-        result = Foto.objects.filter(escolhido=True).values('nome', 'codigo_banco').distinct()
+        result = Foto.objects.filter(escolhido='True').values('nome', 'codigo_banco').distinct()
         return render(request, 'escolha/escolhidos-table.html', {"resultEscolhido": result})
 
 def escolhidosTable(request):
-    result = Foto.objects.filter(escolhido=True).values('nome', 'codigo_banco').distinct()
+    result = Foto.objects.filter(escolhido='True').values('nome', 'codigo_banco').distinct()
     return render(request, 'escolha/escolhidos-table.html', {"resultEscolhido": result})
 
 def naoEscolhidos(request):
@@ -29,19 +29,20 @@ def naoEscolhidos(request):
         return render(request, 'escolha/nao-escolhidos.html', {"resultNaoEscolhido": result, "nome": result[0].nome, "id": result[0].codigo_banco,
                                                                "comentario": result[0].comentario, "escolhido": result[0].escolhido  })
     else:
-        aprovado_ = False
+        aprovado_ = 'False'
         if request.POST.get('aprovado') == 'on':
-            aprovado_ = True
+            aprovado_ = 'True'
         Foto.objects.filter(codigo_banco=request.GET.get('id')).update(comentario=request.POST.get('comentario'), escolhido=aprovado_)
-        result = Foto.objects.filter(escolhido=False).values('nome', 'codigo_banco').distinct()
+        result = Foto.objects.filter(escolhido='False').values('nome', 'codigo_banco').distinct()
         return render(request, 'escolha/nao-escolhidos-table.html', {"resultNaoEscolhido": result} )
 
 def naoEscolhidosTable(request):
-    result = Foto.objects.filter(escolhido=False).values('nome', 'codigo_banco').distinct()
+    result = Foto.objects.filter(escolhido='False').values('nome', 'codigo_banco').distinct()
+    print(result)
     return render(request, 'escolha/nao-escolhidos-table.html', {"resultNaoEscolhido": result})
 
 def home(request):
-    result = Foto.objects.all().values('nome', 'codigo_banco', 'escolhido').distinct()
+    result = Foto.objects.filter(escolhido='').values('nome', 'codigo_banco', 'escolhido').distinct()
     return render(request, 'escolha/home.html', {"result": result})
 
 def todos(request):
@@ -51,11 +52,11 @@ def todos(request):
                       {"result": result, "nome": result[0].nome, "id": result[0].codigo_banco,
                        "comentario": result[0].comentario, "escolhido": result[0].escolhido})
     else:
-        aprovado_ = False
+        aprovado_ = 'False'
         if request.POST.get('aprovado') == 'on':
-            aprovado_ = True
+            aprovado_ = 'True'
         print(aprovado_)
         Foto.objects.filter(codigo_banco=request.GET.get('id')).update(comentario=request.POST.get('comentario'),escolhido=aprovado_)
-        result = Foto.objects.all().values('nome', 'codigo_banco', 'escolhido').distinct()
+        result = Foto.objects.filter(escolhido='').values('nome', 'codigo_banco', 'escolhido').distinct()
         return render(request, 'escolha/home.html', {"result": result})
 
