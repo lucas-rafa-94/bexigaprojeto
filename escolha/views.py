@@ -11,9 +11,11 @@ def escolhidos(request):
                       {"resultEscolhido": result, "nome": result[0].nome, "id": result[0].codigo_banco,
                        "comentario": result[0].comentario, "escolhido": result[0].escolhido})
     else:
-        aprovado_ = False
-        if request.POST.get('aprovado') == 'on':
-            aprovado_ = True
+        aprovado_ = 'True'
+        if request.POST.get('aprovado') == 'aprovado':
+            aprovado_ = 'True'
+        if request.POST.get('aprovado') == 'naoaprovado':
+            aprovado_ = 'False'
         Foto.objects.filter(codigo_banco=request.GET.get('id')).update(comentario=request.POST.get('comentario'),escolhido=aprovado_)
         print('Entrouuuuuu')
         result = Foto.objects.filter(escolhido='True').values('nome', 'codigo_banco').distinct()
@@ -30,8 +32,10 @@ def naoEscolhidos(request):
                                                                "comentario": result[0].comentario, "escolhido": result[0].escolhido  })
     else:
         aprovado_ = 'False'
-        if request.POST.get('aprovado') == 'on':
+        if request.POST.get('aprovado') == 'aprovado':
             aprovado_ = 'True'
+        if request.POST.get('aprovado') == 'naoaprovado':
+            aprovado_ = 'False'
         Foto.objects.filter(codigo_banco=request.GET.get('id')).update(comentario=request.POST.get('comentario'), escolhido=aprovado_)
         result = Foto.objects.filter(escolhido='False').values('nome', 'codigo_banco').distinct()
         return render(request, 'escolha/nao-escolhidos-table.html', {"resultNaoEscolhido": result} )
@@ -52,9 +56,11 @@ def todos(request):
                       {"result": result, "nome": result[0].nome, "id": result[0].codigo_banco,
                        "comentario": result[0].comentario, "escolhido": result[0].escolhido})
     else:
-        aprovado_ = 'False'
-        if request.POST.get('aprovado') == 'on':
+        aprovado_ = ''
+        if request.POST.get('aprovado') == 'aprovado':
             aprovado_ = 'True'
+        if request.POST.get('aprovado') == 'naoaprovado':
+            aprovado_ = 'False'
         print(aprovado_)
         Foto.objects.filter(codigo_banco=request.GET.get('id')).update(comentario=request.POST.get('comentario'),escolhido=aprovado_)
         result = Foto.objects.filter(escolhido='').values('nome', 'codigo_banco', 'escolhido').distinct()

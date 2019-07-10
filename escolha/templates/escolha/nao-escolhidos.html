@@ -1,6 +1,11 @@
 {% extends 'escolha/navbar.html' %}
 {% load static %}
 {% block content %}
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'escolha/css/style.css' %}" type="text/css">
+
     <form action="{% url 'nao-escolhidos' %}?nome={{nome}}&id={{ id }}" method="post">
     {% csrf_token %}
 
@@ -10,7 +15,7 @@
         <div class="col-lg-12 col-sm-12 m-auto">
           <div class="section-heading text-white">
             <h4 name="nome" class="section-title">{{nome}}</h4>
-              <p>Código banco: {{ id }} </p>
+              <p>Código SQL: {{ id }} </p>
           </div>
         </div>
       </div>
@@ -23,10 +28,12 @@
       <div class="row">
            {% for foto in resultNaoEscolhido %}
         <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="service-box">
-            <img src="{{ foto.imagem }}" style="width: 400px; height: 300px">
+          <div  class="service-box">
+              <h9>Clique na imagem para vê-la em tamanho real</h9>
+              <br>
+           <a href="http://localhost:8000/{{ foto.imagem }}"> <img  src="{{ foto.imagem }}" style="width: 400px; height: 300px"> </a>
             <div class="service-inner">
-              <h4>{{ foto.ano }}</h4>
+              <h4  >{{ foto.ano }}</h4>
             </div>
           </div>
         </div>
@@ -37,14 +44,26 @@
         </div>
       {% if escolhido == 'True' %}
            <div class="col-md-12">
-            <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+            <input name="aprovado" type="radio" value="aprovado" class="form-check-input" id="exampleCheck1" checked>
             <label class="form-check-label" for="exampleCheck1">Aprovado</label>
         </div>
       {% endif %}
        {% if escolhido == 'False' %}
            <div class="col-md-12">
-            <input name="aprovado" type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input name="aprovado" type="radio" value="aprovado" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Aprovado</label>
+        </div>
+      {% endif %}
+      {% if escolhido == 'True' %}
+           <div class="col-md-12">
+            <input name="aprovado" type="radio" value="naoaprovado" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Não Aprovado</label>
+        </div>
+      {% endif %}
+       {% if escolhido == 'False' %}
+           <div class="col-md-12">
+            <input name="aprovado" value="naoaprovado" type="radio" class="form-check-input" id="exampleCheck1" checked>
+            <label class="form-check-label" for="exampleCheck1">Não Aprovado</label>
         </div>
       {% endif %}
 
