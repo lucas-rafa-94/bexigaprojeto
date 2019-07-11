@@ -1,4 +1,4 @@
-/*
+*
 * ----------------------------------------------------------------------------------------
 Author       : Dreambuzz
 Template Name: Promodise
@@ -32,7 +32,6 @@ Version      : 1.0
 
 a.btn.btn-outline-danger {
     /* width: 100px; */
-    margin-top: 5px;
     border-radius: 20px;
     /* margin-left: 1000px; */
     margin-right: 20px;
@@ -2254,6 +2253,7 @@ button#btUsuario {
 
 a.btn.btn-outline-danger {
   margin-left: 20px;
+  border-radius: 20px;
   color: #DA3849;
 }
 

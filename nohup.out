@@ -1,0 +1,9 @@
+Watching for file changes with StatReloader
+[11/Jul/2019 05:31:30] "GET /static/escolha/images/0050480011_CONDESSA_DE_SAO_JOAQUIM_306_MICHAEL_1984.jpg HTTP/1.1" 304 0
+[11/Jul/2019 05:31:34] "GET /accounts/login/ HTTP/1.1" 200 1833
+[11/Jul/2019 05:31:35] "GET /static/escolha/css/stylelogin.css HTTP/1.1" 304 0
+[11/Jul/2019 05:31:40] "POST /accounts/login/ HTTP/1.1" 302 0
+[11/Jul/2019 05:31:41] "GET /static/escolha/css/style.css HTTP/1.1" 304 0
+[11/Jul/2019 05:31:41] "GET / HTTP/1.1" 200 117598
+[11/Jul/2019 05:33:04] "GET /accounts/login/ HTTP/1.1" 200 1833
+[11/Jul/2019 05:33:27] "GET /accounts/login/ HTTP/1.1" 200 1833
