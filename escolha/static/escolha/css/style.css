@@ -30,6 +30,98 @@ Version      : 1.0
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700|Rubik:400,600,700');
 
+a.btn.btn-outline-danger {
+    /* width: 100px; */
+    margin-top: 5px;
+    border-radius: 20px;
+    /* margin-left: 1000px; */
+    margin-right: 20px;
+}
+
+.form-signin
+{
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+  margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+  font-weight: normal;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #9F29FF;
+  border-color: #9F29FF;
+}
+
+.form-signin .form-control
+{
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+  z-index: 2;
+}
+.form-signin input[type="text"]
+{
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.account-wall
+{
+  margin-top: 20px;
+  padding: 40px 0px 20px 0px;
+  background-color: #f7f7f7;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+  color: #555;
+  font-size: 18px;
+  font-weight: 400;
+  display: block;
+}
+.profile-img
+{
+  width: 120px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+
+}
+.need-help
+{
+  margin-top: 10px;
+}
+.new-account
+{
+  display: block;
+  margin-top: 10px;
+}
+
+#erroLoginAlert {
+  margin-top: 10px;
+}
 body {
     font-size: 16px;
     font-weight: 400;
@@ -2133,6 +2225,8 @@ tr.row100.body:hover {
   margin-top: 20px;
 }
 
+
+
 .jumbotron{
   border-radius: 10px;
   margin: 10px;
@@ -2159,7 +2253,6 @@ button#btUsuario {
 }
 
 a.btn.btn-outline-danger {
-  margin-top: 20px;
   margin-left: 20px;
   color: #DA3849;
 }
@@ -2201,5 +2294,7 @@ button#btBuscaCidades {
 button#btBuscaCidadesCreate{
     height: 40px;
 }
+
+
 
 

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{% static 'escolha/css/style.css' %}" type="text/css">
   <title></title>
 </head>
+{% if user.is_authenticated %}
 <body data-spy="scroll" data-target=".fixed-top">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +28,16 @@
       </li>
     </ul>
   </div>
+  <form class="form-inline my-2 my-lg-0">
+  <a  class="btn btn-outline-danger"  href="{% url 'logout' %}">
+  <span class="glyphicon glyphicon-log-out"></span> Log out
+  </a>
+  </form>
 </nav>
 {% block content %}
 {% endblock %}
+{% else %}
+
+{% endif %}
 </body>
 </html>

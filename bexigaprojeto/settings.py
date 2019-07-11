@@ -26,7 +26,7 @@ SECRET_KEY = 'tf&a6iw2mic*5dnc1^w)kwypgc^ftlk372&2mqi$g!4+s0yzhs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-18-228-189-37.sa-east-1.compute.amazonaws.com', '127.0.0.1']
 
 
 # Application definition
@@ -127,3 +127,5 @@ STATIC_ROOT = '/Users/lucasdossantos/Desktop/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "escolha/static/escolha/")
 ]
+
+LOGIN_REDIRECT_URL = '/'
