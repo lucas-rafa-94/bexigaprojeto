@@ -121,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/Users/lucasdossantos/Desktop/'
+STATIC_ROOT = '/home/ec2-user/bxga/bexigaprojeto/'
 
 
 STATICFILES_DIRS = [
